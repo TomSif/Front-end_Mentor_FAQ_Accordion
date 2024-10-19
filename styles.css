@@ -183,8 +183,7 @@ body {
 @media (min-width: 24rem) {
   body {
     background-image: url(./assets/images/background-pattern-desktop.svg);
-    background-repeat: no-repeat;
-    max-width: 90rem;
+    background-repeat: repeat-x;
   }
   .FAQs__layout {
     padding: 2.2rem 2.5rem;
