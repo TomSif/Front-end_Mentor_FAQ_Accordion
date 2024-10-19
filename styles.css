@@ -1,0 +1,208 @@
+:root {
+  /* ### Define colors of the project */
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  --hover-purple: hsl(279, 73%, 54%);
+  /* ### Define padding and gap of the project */
+  --layout-gap: 1.5rem;
+  --layout-padding: 2rem;
+}
+
+/* ### Define Fonts */
+/* work-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/woff2/work-sans-v19-latin-regular.woff2")
+    format("woff2");
+}
+/* work-sans-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/woff2/work-sans-v19-latin-600.woff2") format("woff2");
+}
+/* work-sans-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/woff2/work-sans-v19-latin-700.woff2") format("woff2");
+}
+
+/* ## RESET STYLES OF ELEMENTS BEFORE STARTING */
+/* RESET button */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+/* RESET list bullet */
+li {
+  list-style: none;
+}
+
+/* ## HIDDEN CLASSES JAVASCRIPT ACTIONS */
+/* for icons */
+.hidden {
+  display: none;
+}
+
+/* for accordion response not expanded  */
+.accordion__response--hidden {
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden;
+  transition: max-height 0.6s ease-out, opacity 0.5s ease-out; /* Transition  */
+}
+
+/* MOBILE FIRST STYLING APPROACH */
+/* ### Start styling  */
+body {
+  font-family: "Work sans", sans-serif;
+  background-image: url(./assets/images/background-pattern-mobile.svg);
+  background-repeat: no-repeat;
+  background-color: var(--Light-pink);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.FAQs__layout {
+  background-color: var(--White);
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem 1.5rem;
+  max-width: 37.5rem;
+  height: auto;
+  border-radius: 1rem;
+}
+
+/* HEADER SECTION */
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--layout-gap);
+  align-items: center;
+}
+
+.header__img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.header__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--Dark-purple);
+}
+
+/* FAQ Accordion Section */
+.FAQs__item {
+  padding-top: 1.25rem;
+  border-bottom: 1px solid var(--Light-pink);
+}
+
+.accordion__question {
+  all: unset;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2rem;
+  align-items: center;
+}
+
+.accordion__question:focus .accordion__question__title,
+.accordion__question:hover .accordion__question__title {
+  color: var(--hover-purple);
+  cursor: pointer;
+}
+
+.accordion__question__title {
+  grid-column: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--Dark-purple);
+  margin-right: 1.5rem;
+  line-height: 1.3rem;
+  /* border: 1px dashed blue; */
+}
+
+.accordion__toggle {
+  grid-column: 2;
+  justify-self: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* border: 1px dashed green; */
+}
+
+.accordion__icon {
+  width: 1.8rem; /* Taille du SVG */
+  height: 1.8rem; /* Taille du SVG */
+}
+
+/* RESPONSE SECTION */
+.accordion__response {
+  padding-top: 1.5rem;
+  max-height: 400px;
+  opacity: 100%;
+  transition: max-height 0.6s ease-in, opacity 0.5s ease-in;
+}
+
+.accordion__response p {
+  font-size: 0.9rem;
+  color: var(--Grayish-purple);
+  font-weight: 400;
+  line-height: 1.3rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ### MEDIA QUERIES */
+
+@media (min-width: 24rem) {
+  body {
+    background-image: url(./assets/images/background-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    max-width: 90rem;
+  }
+  .FAQs__layout {
+    padding: 2.2rem 2.5rem;
+  }
+  .header__img {
+    width: 2.5rem;
+    height: auto;
+  }
+  .header__title {
+    font-size: 3.5rem;
+  }
+  .accordion__question__title {
+    font-size: 1.1rem;
+  }
+  .accordion__response p {
+    font-size: 0.95rem;
+    word-wrap: break-word;
+    overflow-wrap: normal;
+    white-space: normal;
+  }
+}
